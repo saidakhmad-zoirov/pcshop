@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: #161b26;
+}
+
+body {
+  @apply bg-bench text-ink font-body antialiased;
+  /* ustaxona stolidagi nozik panjara */
+  background-image:
+    linear-gradient(rgba(138, 148, 168, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 148, 168, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+:focus-visible {
+  outline: 2px solid #f2a93b;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-page px-4 sm:px-6;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-chip px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-amber text-bench hover:bg-[#ffbb55];
+  }
+  .btn-ghost {
+    @apply btn border border-rail text-ink hover:border-steel;
+  }
+  .input {
+    @apply w-full rounded-chip border border-rail bg-bench px-3 py-2.5 text-sm text-ink placeholder:text-steel/70 focus:border-amber focus:outline-none;
+  }
+  .card {
+    @apply rounded-card border border-rail bg-panel;
+  }
+  .h-display {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
